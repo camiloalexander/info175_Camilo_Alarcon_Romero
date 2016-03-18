@@ -1,0 +1,26 @@
+def menor_mayor_igual(x,y):
+	if (x>y): 
+		return "El numero "+str(x)+" es el mayor."
+	elif (y>x):
+		return "El numero "+str(y)+" es el mayor."
+	else:
+		return "Los dos numeros son iguales"
+
+if __name__ == "__main__":
+	x = input("Ingrese el primer numero entero")
+	y = input("Ingrese el segundo numero entero")
+	print menor_mayor_igual(x,y)
+
+#Ejemplo de casos:
+#
+# x=34;
+# y=6;
+# El numero 34 es el mayor.
+# 
+# x=5;
+# y=5;
+# los dos numeros son iguales.
+# 
+# x=100;
+# y=18239;
+# El numero 18239 es el mayor.
