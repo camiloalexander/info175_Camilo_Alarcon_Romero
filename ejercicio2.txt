@@ -1,0 +1,11 @@
+lista = []
+text = raw_input("Ingrese una lista de palabras separadas por coma")
+lista = text.split(",")
+print "Lista desordenada: ",lista
+lista.sort()
+print "Lista ordenada: "
+print lista
+
+
+#lista desordenada: [z,b,n,a]
+#lista ordenada: [a,b,n,z]
