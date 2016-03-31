@@ -1,0 +1,10 @@
+text = raw_input("Ingrese texto (Linea vacia para terminar): ")
+while (text.replace(" ","") != ""):
+    print "Su texto es: ", text
+    print "Su texto en mayusculas es: ",text.upper()
+    text = raw_input("Ingrese texto: ")
+print "La ejecucion ha finalizado, ya que ingreso una cadena vacia"
+
+#Ejemplo de funcionamiento:
+#Su texto es: hola mundo
+#Su texto en mayusculas es: HOLA MUNDO
