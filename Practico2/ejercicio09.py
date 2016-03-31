@@ -3,52 +3,46 @@ import string
 
 listacenit = ['c','e','n','i','t'] 
 listapolar = ['p','o','l','a','r']
-
+cenit = "cenit"
+polar = "polar"
 
 def encrypt_cenit_polar(frase):
 	fr = []
-	fras = frase  #copia de frase (por si la necesito)
-	fras = str(frase.lower())
-	for indice in range(len(fras)):
-		letra = fras[indice]
+	frase = str(frase.lower())
+	""""
+	for indice in range(len(frase)):
+		letra = frase[indice]
 		fr.append(letra)
 		copiafr=fr   #copia de la fr (por si la necesito)
-		if fr[indice] == "p":
-			fr[indice] = fr[indice].replace("p","c")
-		if fr[indice] == "o":
-			fr[indice] = fr[indice].replace("o","e")
-		if fr[indice] == "l":
-			fr[indice] = fr[indice].replace("l","n")
-		if fr[indice] == "a":
-			fr[indice] = fr[indice].replace("a","i")	
-		if fr[indice] == "r":
-			fr[indice] = fr[indice].replace("r","t")
-
-		if fr[indice] == "c":
-			fr[indice] = fr[indice].replace("c","p")
-		if fr[indice] == "e":
-			fr[indice] = fr[indice].replace("e","o")
-		if fr[indice] == "n":
-			fr[indice] = fr[indice].replace("n","l")		
-		if fr[indice] == "i":
-			fr[indice] = fr[indice].replace("i","a")				
-		if fr[indice] == "t":
-			fr[indice] = fr[indice].replace("t","r")
-			
-		#fr[indice] = fr[indice].replace("c","p")	
-		#fr[indice] = fr[indice].replace("e","o")
-		#fr[indice] = fr[indice].replace("n","l")
-		#fr[indice] = fr[indice].replace("i","a")
-		#fr[indice] = fr[indice].replace("t","r")
-		
-		#fr[indice] = fr[indice].replace("p","c")
-		#fr[indice] = fr[indice].replace("o","e")
-		#fr[indice] = fr[indice].replace("l","n")
-		#fr[indice] = fr[indice].replace("a","i")
-		#fr[indice] = fr[indice].replace("r","t")
-		
-	print fr
-	
+	"""
+	#frase: contiene la frase original 
+	#frasecenit: frase modificada solo con las letras de cenit
+	#frasepolar: la frase es modificada con las letras de polar
+	#frase_encrypt: contiene la union de los cambios en ambas frases (cenit-polar)
+	frasecenit = frase
+	frasepolar = frase
+	frase_encrypt = frase
+	for f in frase:
+		for c in cenit:
+			if f == c:
+				indice = cenit.index(c,0)
+				frasecenit = frasecenit.replace(f,polar[indice])
+	frase_encrypt = frasepolar
+	for f in frasepolar:
+		for p in polar:
+			if f == p:
+				indice = polar.index(p,0)
+				frasepolar = frasepolar.replace(f,cenit[indice])
+	for x in range(len(frase_encrypt)):
+		if frase_encrypt[x] != frasepolar[x]:
+			fr.append(frasepolar[x])
+		if frase_encrypt[x] != frasecenit[x]:
+			fr.append(frasecenit[x])
+		if frase_encrypt[x] == frasepolar[x] and frase_encrypt[x] == frasecenit[x]:
+			fr.append(frasecenit[x])
+	#print fr
+	#for item in fr:
+	#	print item
 	cadena = ""
 	for i in range(len(fr)):
 		cadena = cadena + fr[i]

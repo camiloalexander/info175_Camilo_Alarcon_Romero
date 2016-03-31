@@ -1,30 +1,29 @@
 # -*- coding: utf -8 -*-
 import string
+numero = ["0","1","2","3","4","5","6","7","8","9",""]
 
 def encrypt(word, jump):
-    abc = string.ascii_lowercase
-    palabra_encriptada = ""
-    for letra in word:
-        if letra != " ":
-            buscar = (abc.index(letra.lower())+jump) % len(abc)
-            palabra_encriptada += (abc[buscar])
-        else:
-            palabra_encriptada += (letra)
-    
-    return palabra_encriptada
+	jump = int(jump)
+	word = word.lower()
+	abc = string.ascii_lowercase
+	palabra_encriptada = ""
+	for letra in word:
+		cont=0
+		for char in abc:
+			if (letra == char or (letra in numero)):
+				if jump+cont >= len(abc):
+					palabra_encriptada = palabra_encriptada+abc[cont + jump -len(abc)]
+				else:
+					palabra_encriptada = palabra_encriptada+abc[(cont + jump)]
+			else:
+				cont += 1
+	return palabra_encriptada
 
 
 if __name__ == "__main__":
-	x = raw_input("Ingrese frase a encriptar: ")
-	while x.isalpha() == False:
-		x = raw_input("Ingrese frase a encriptar: ")
-		
-	y = raw_input("Ingrese cantidad a mover: ")
-	while y.isdigit() == False:
-		y = raw_input("Ingrese cantidad a mover: ")
-	
-	str(x)
-	int(y)
-	
-	print(encrypt(x, y))
-    
+	word = raw_input("Ingrese frase a encriptar: ")
+	jump = raw_input("Ingrese cantidad a mover: ")
+	while jump.isdigit() == False:
+		jump = raw_input("Ingrese cantidad a mover: ")
+	int(jump)
+	print(encrypt(word, jump))
